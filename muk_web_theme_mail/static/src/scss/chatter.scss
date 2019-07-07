@@ -1,0 +1,119 @@
+/**********************************************************************************
+* 
+*   Copyright (C) 2018 MuK IT GmbH
+*    		
+*   Odoo Proprietary License v1.0
+*   This software and associated files (the "Software") may only be used 
+*	(executed, modified, executed after modifications) if you have
+*	purchased a valid license from the authors, typically via Odoo Apps,
+*	or if you have received a written agreement from the authors of the
+*	Software (see the COPYRIGHT file).
+*	
+*	You may develop Odoo modules that use the Software as a library 
+*	(typically by depending on it, importing it and using its resources),
+*	but without copying any source code or material from the Software.
+*	You may distribute those modules under the license of your choice,
+*	provided that this license is compatible with the terms of the Odoo
+*	Proprietary License (For example: LGPL, MIT, or proprietary licenses
+*	similar to this one).
+*	
+*	It is forbidden to publish, distribute, sublicense, or sell copies of
+*	the Software or modified copies of the Software.
+*	
+*	The above copyright notice and this permission notice must be included
+*	in all copies or substantial portions of the Software.
+*	
+*	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+*	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+*	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+*	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+*	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+*	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+*	DEALINGS IN THE SOFTWARE.
+*
+**********************************************************************************/
+
+.o_form_view {
+	@include media-breakpoint-down(sm) {
+		 .o_chatter {
+            .o_thread_composer {
+                padding-left: $o-mail-thread-avatar-size * 0.5;
+                .o_chatter_avatar {
+                	display: none;
+                }
+            }
+            .o_chatter_topbar {
+                height: auto;
+                flex-wrap: wrap-reverse;
+               	margin-top: $grid-gutter-width*  0.25;
+                > .o_topbar_right_area {
+                    max-width: 100%;    
+                    min-width: 100%; 
+				    flex-basis: 100%;
+				    display: flex;
+                    flex: 1 0 auto;
+                    flex-wrap: wrap;   
+                	justify-content: space-between;
+                	border-bottom: 1px solid gray('300');
+                    .o_followers {
+                        display: initial !important;
+    					margin-bottom: 0;
+                    }
+            	}
+                > .o_active {
+               		border-top: none;
+                }
+                .o_chatter_button_attachment {
+               		margin-right: 5px;
+                }
+            }
+        }
+	}
+}
+
+.mk_chatter_position_sided {
+	@include media-breakpoint-up(xxl, $o-extra-grid-breakpoints) {
+        .o_form_view:not(.o_form_nosheet) > .o_chatter {
+            .o_chatter_topbar {
+                top: -1px;
+                z-index: 2;    
+            	height: auto;
+                position: sticky;  
+                flex-wrap: wrap-reverse;
+                background-color: $o-view-background-color;  
+               	margin-top: $grid-gutter-width*  0.25;
+                > .o_topbar_right_area {
+                    max-width: 100%;     
+                    min-width: 100%;
+				    flex-basis: 100%;
+				    display: flex;
+                    flex: 1 0 auto;
+                    flex-wrap: wrap;   
+                	justify-content: space-between;
+                	border-bottom: 1px solid gray('300');
+                    .o_followers {
+    					margin-bottom: 0;
+    					min-width: 100px;
+                    }
+            	}
+                > .o_active {
+               		border-top: none;
+                }
+               	> .btn-link {
+               		border-top: none;
+				    border-bottom: none;
+               	}
+                .o_chatter_button_attachment {
+               		margin-right: 5px;
+                }
+            }
+            .o_thread_composer {
+                position: sticky; 
+            	border: 1px solid gray('300');
+                background-color: $o-view-background-color; 
+                z-index: 1; 
+                top: 68px;
+            }
+        }
+    } 
+}
